@@ -108,3 +108,11 @@ try {
 ##Credits
 
 Pizza and L&P, because they helped me create this.
+
+##Legal
+
+The name "Snapchat" is a copyright of Snapchat™, Inc.
+
+This project is in no way affiliated with, authorized, maintained, sponsored or endorsed by Snapchat™, Inc or any of its affiliates or subsidiaries.
+
+I, the project owner and creator, am not responsible for any legalities that may arise in the use of this project. Use at your own risk.
