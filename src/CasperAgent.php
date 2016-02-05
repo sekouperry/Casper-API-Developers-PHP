@@ -137,8 +137,7 @@ abstract class CasperAgent {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $jwt_params = array(
-            "iat" => time(),
-            "iss" => "server"
+            "iat" => time()
         );
 
         $jwt = JWT::encode(array_merge($jwt_params, $params), $this->API_SECRET, "HS256");
