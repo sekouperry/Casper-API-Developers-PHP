@@ -54,7 +54,7 @@ class CasperDevelopersAPI extends CasperAgent {
             $params["dtoken1v"] = $dtoken1v;
         }
 
-        if($dtoken1v != null){
+        if($pre_auth_token != null){
             $params["pre_auth_token"] = $pre_auth_token;
         }
 
