@@ -168,7 +168,7 @@ abstract class CasperAgent {
         $json = json_decode($response);
         if($json == null){
             curl_close($ch);
-            throw new CasperException("[{$endpoint}] Failed to decode response!");
+            throw new CasperException("[{$endpoint}] Failed to decode response!\nResponse: {$response}");
         }
 
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);

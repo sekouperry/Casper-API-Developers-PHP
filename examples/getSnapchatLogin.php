@@ -8,6 +8,7 @@ $casper = new CasperDevelopersAPI("your_api_key", "your_api_secret");
 try {
 
     $login = $casper->getSnapchatIOSLogin("username", "password");
+    //$login = $casper->getSnapchatIOSLogin("username", "login_code_from_sms", "dtoken1i", "dtoken1v", "pre_auth_token");
 
     echo "Snapchat Login URL: {$login->url}\n\n";
 

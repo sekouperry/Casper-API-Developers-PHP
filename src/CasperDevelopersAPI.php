@@ -22,7 +22,16 @@ class CasperDevelopersAPI extends CasperAgent {
      *   Your Snapchat Username
      *
      * @param string $password
-     *   Your Snapchat Password
+     *   Your Snapchat Password or 2Factor Authentication Code
+     *
+     * @param string $dtoken1i
+     *   Optional DeviceToken Identifier (From initial Login response or Device Token request)
+     *
+     * @param string $dtoken1v
+     *   Optional DeviceToken Verifier (From initial Login response or Device Token request)
+     *
+     * @param string $pre_auth_token
+     *   Optional PreAuthToken for 2Factor Authentication (From initial Login response)
      *
      * @return object
      *   Response Object
@@ -30,12 +39,26 @@ class CasperDevelopersAPI extends CasperAgent {
      * @throws CasperException
      *   An exception is thrown if an error occurs.
      */
-    public function getSnapchatIOSLogin($username, $password){
+    public function getSnapchatIOSLogin($username, $password, $dtoken1i = null, $dtoken1v = null, $pre_auth_token = null){
 
-        $response = parent::post("/snapchat/ios/login", null, array(
+        $params = array(
             "username" => $username,
             "password" => $password
-        ));
+        );
+
+        if($dtoken1i != null){
+            $params["dtoken1i"] = $dtoken1i;
+        }
+
+        if($dtoken1v != null){
+            $params["dtoken1v"] = $dtoken1v;
+        }
+
+        if($dtoken1v != null){
+            $params["pre_auth_token"] = $pre_auth_token;
+        }
+
+        $response = parent::post("/snapchat/ios/login", null, $params);
 
         if(!isset($response->headers)){
             throw new CasperException("Headers not found in Response");
